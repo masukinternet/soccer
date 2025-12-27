@@ -1,12 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="utf-8">
-  <title>Live Streaming</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Streaming Bola</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Live Streaming Bola" />
+  <meta property="og:description" content="Saksikan live streaming pertandingan sepak bola hari ini secara gratis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-image.jpg" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #e5e7eb;
+    }
+    header {
+      background: linear-gradient(90deg, #0f172a, #020617);
+      padding: 16px;
+      text-align: center;
+      border-bottom: 1px solid #1e293b;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 20px;
+    }
+    .live-player {
+      background: #020617;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,.5);
+    }
+    .live-player iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+      background: black;
+    }
+    .match-info {
+      padding: 14px 18px;
+      border-top: 1px solid #1e293b;
+    }
+    .match-info h2 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+    .badge-live {
+      display: inline-block;
+      background: #dc2626;
+      color: white;
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: .5; }
+      100% { opacity: 1; }
+    }
+    .sidebar {
+      background: #020617;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,.5);
+    }
+    .sidebar h3 {
+      margin: 0;
+      padding: 14px 16px;
+      border-bottom: 1px solid #1e293b;
+      font-size: 1rem;
+    }
+    .match-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .match-list li {
+      padding: 12px 16px;
+      border-bottom: 1px solid #1e293b;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .match-list li:hover {
+      background: #020617;
+    }
+    .match-list li.active {
+      background: #1d4ed8;
+    }
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: .85rem;
+      color: #94a3b8;
+    }
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .live-player iframe {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="video-con embed-responsive embed-responsive-16by9"><iframe allowfullscreen="true" frameborder="0" height="600px" scrolling="yes" width="100%" src="https://news.3arabsports.net/?p=741&amp;serv=0" class=""></iframe></div>
-<iframe allowfullscreen="true" frameborder="0" height="600px" scrolling="yes" width="100%" src="https://news.3arabsports.net/?p=741&amp;serv=0" class=""></iframe>
+  <header>
+    <h1>⚽ Live Streaming Bola</h1>
+  </header>
 
+<video data-v-11315ff5="" id="playerID_html5_api" x5-video-player-fullscreen="true" x5-playsinline="" playsinline="playsinline" preload="none" webkit-playsinline="true" class="vjs-tech" tabindex="-1" src="blob:https://ppdd16.plaifrdcikf.shop/30b48007-178f-43a6-9e03-9506692798a9"></video>
+  
+  <main class="container">
+    <section class="live-player">
+      <iframe id="liveFrame" src="https://news.3arabsports.net/matches/%d8%a8%d8%a7%d8%b1%d9%85%d8%a7-%d9%88-%d9%81%d9%8a%d9%88%d8%b1%d9%86%d8%aa%d9%8a%d9%86%d8%a7-%d9%81%d9%8a-%d8%a5%d9%8a%d8%b7%d8%a7%d9%84%d9%8a%d8%a7-%d8%a7%d9%84%d8%af%d9%88%d8%b1%d9%8a-%d8%a7%d9%84/?serv=1" allowfullscreen></iframe>
+      <div class="match-info">
+        <h2 id="matchTitle">Team A vs Team B <span class="badge-live">LIVE</span></h2>
+        <div id="matchTime">Kick Off: 19.30 WIB</div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Pertandingan Hari Ini</h3>
+      <ul class="match-list" id="matchList">
+        <li class="active" data-src="https://example.com/live-stream" data-title="Team A vs Team B" data-time="Kick Off: 19.30 WIB">Team A vs Team B</li>
+        <li data-src="https://example.com/live-stream2" data-title="Team C vs Team D" data-time="Kick Off: 21.00 WIB">Team C vs Team D</li>
+        <li data-src="https://example.com/live-stream3" data-title="Team E vs Team F" data-time="Kick Off: 23.00 WIB">Team E vs Team F</li>
+      </ul>
+    </aside>
+    <script async="async" data-cfasync="false" src="https://prodtrousers.com/72ff6c0102eaad7af36eca64bdc624aa/invoke.js"></script>
+<div id="container-72ff6c0102eaad7af36eca64bdc624aa"></div>
+  </main>
+
+  <footer>
+    © 2025 Live Streaming Bola | GitHub Pages Ready
+  </footer>
+
+  <script>
+    const frame = document.getElementById('liveFrame');
+    const title = document.getElementById('matchTitle');
+    const time = document.getElementById('matchTime');
+    const matches = document.querySelectorAll('#matchList li');
+
+    matches.forEach(match => {
+      match.addEventListener('click', () => {
+        matches.forEach(m => m.classList.remove('active'));
+        match.classList.add('active');
+        frame.src = match.dataset.src;
+        title.innerHTML = match.dataset.title + ' <span class="badge-live">LIVE</span>';
+        time.textContent = match.dataset.time;
+      });
+    });
+  </script>
 </body>
 </html>
+
